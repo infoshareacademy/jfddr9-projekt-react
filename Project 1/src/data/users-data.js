@@ -1,13 +1,13 @@
 export const UsersData = [
   {
     id: 1,
-    name: "Kurtis Weissnat",
-    username: "Elwyn.Skiles",
-    email: "Telly.Hoeger@billy.biz",
+    name: "Michael Scott",
+    username: "Best.Boss",
+    email: "Michael.Scott@billy.biz",
     address: {
       street: "Rex Trail",
       suite: "Suite 280",
-      city: "Howemouth",
+      city: "Scranton",
       zipcode: "58804-1099",
       geo: {
         lat: "24.8918",
@@ -17,20 +17,20 @@ export const UsersData = [
     phone: "210.067.6132",
     website: "elvis.io",
     company: {
-      name: "Johns Group",
+      name: "Dunder Mifflin C. O.",
       catchPhrase: "Configurable multimedia task-force",
       bs: "generate enterprise e-tailers"
     }
   },
   {
     id: 2,
-    name: "Nicholas Runolfsdottir V",
-    username: "Maxime_Nienow",
-    email: "Sherwood@rosamond.me",
+    name: "Dwight Schrute",
+    username: "dwight_schrute",
+    email: "Dwight@schrute.me",
     address: {
       street: "Ellsworth Summit",
       suite: "Suite 729",
-      city: "Aliyaview",
+      city: "Scranton",
       zipcode: "45169",
       geo: {
         lat: "-14.3990",
