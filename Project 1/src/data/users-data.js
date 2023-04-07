@@ -3,7 +3,7 @@ export const UsersData = [
     id: 1,
     name: "Michael Scott",
     username: "Best.Boss",
-    email: "Michael.Scott@billy.biz",
+    email: "michael.scott@dmpc.us",
     address: {
       street: "Rex Trail",
       suite: "Suite 280",
@@ -26,7 +26,7 @@ export const UsersData = [
     id: 2,
     name: "Dwight Schrute",
     username: "dwight_schrute",
-    email: "Dwight@schrute.me",
+    email: "dwight.schrute@dmpc.us",
     address: {
       street: "Ellsworth Summit",
       suite: "Suite 729",
@@ -47,9 +47,9 @@ export const UsersData = [
   },
   {
     id: 3,
-    name: "Glenna Reichert",
+    name: "Pam Beesly",
     username: "Delphine",
-    email: "Chaim_McDermott@dana.io",
+    email: "pam.beesly@dmpc.us",
     address: {
       street: "Dayna Park",
       suite: "Suite 449",
@@ -70,9 +70,9 @@ export const UsersData = [
   },
   {
     id: 4,
-    name: "Clementina DuBuque",
+    name: "Kelly Kapoor",
     username: "Moriah.Stanton",
-    email: "Rey.Padberg@karina.biz",
+    email: "kelly.kapoor@dmpc.us",
     address: {
       street: "Kattie Turnpike",
       suite: "Suite 198",

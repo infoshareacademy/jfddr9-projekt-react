@@ -8,6 +8,9 @@ import { Flex } from "./components/Flex";
 import { Mainflex } from "./components/Mainflex";
 import logo from "./logo.png";
 import { MenuItems } from "../src/data/menu-items";
+import {DarkTheme } from "./components/DarkTheme";
+import {UglyTheme} from "./components/Telewizor"
+
 
 const data = UsersData.map((user) => {
   return { name: user.name, email: user.email };
@@ -19,7 +22,9 @@ const links = MenuItems.map((item) => {
 function App() {
   return (
     <div className="app">
-      <Header title="Some human beeings..." logoSrc={logo} />
+      <UglyTheme>
+      <DarkTheme/>
+      <Header title="Dunder Mifflin P. C." logoSrc={logo} />
       <Mainflex>
         <Flex>
           <Sidebar asses={links} />
@@ -28,7 +33,7 @@ function App() {
           <Users settings={data} />
         </Flex>
       </Mainflex>
-      <Footer text="footer" />
+      <Footer text="footer" /></UglyTheme>
       <div></div>
     </div>
   );

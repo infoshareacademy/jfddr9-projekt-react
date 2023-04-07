@@ -14,10 +14,10 @@
   --calm-cayen: rgba(50, 128, 187, 0.5);
   --dark-blue: rgb(0, 15, 44);
   --white: #ffffff;
-  --darkwhite: #cecaca;
-  --pinkshadow: #ffcbdd;
+  --darkwhite: #2c0e0e;
+  --pinkshadow: #1da840;
   --lightbshadow: rgba(0, 0, 0, 0.15);
-  --test: rgb(0, 192, 150);
+  --test: rgb(255, 255, 255);
 
 }
 body {

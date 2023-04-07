@@ -14,6 +14,12 @@ list-style:none;
 background-color: rgb(40, 47, 109, 0.2);
 border-radius: 12px;
 padding: 25px;
+
+&:hover{
+scale:1.06;
+background-color: rgb(40, 47, 109, 0.5);
+
+}
 `
 const SingleItem = styled.a`
 text-transform: uppercase;
@@ -26,7 +32,7 @@ color: rgb(0, 224, 187);
 }
 &:hover{
     color:white;
-    scale:2;
+    ;
 }
 `
 export const Item = ({item}) => {
