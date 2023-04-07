@@ -28,8 +28,8 @@ function App() {
       <Users data={data}/>
       
       <div className="themeButtons">
-            <button onclick="clickfunction()" class="firstbutton">Czarne tło</button>
-            <button onclick="clickfunction2()" class="firstbutton">Jasne tło</button>
+            <button onClick={() => clickfunction()} className="firstbutton">Czarne tło</button>
+            <button onClick={() => clickfunction2()} className="firstbutton">Jasne tło</button>
         </div>
     </div>
   );
