@@ -12,18 +12,21 @@ import { Footer } from './components/Footer';
 import { User } from './components/User';
 import { useState } from 'react';
 
+
+
 function App() {
   const [theme, setTheme] = useState('light');
   const isDarkTheme = theme === 'dark';
 
   const toggleTheme = () => {
+    console.log('dsda')
     setTheme(isDarkTheme ? 'light' : 'dark')
   }
 
   return (
     <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
       <div className="app">
-      <Header title="Nagłówek" logoSrc={logo}/>
+      <Header title="Nagłówek" logoSrc={logo} fn={toggleTheme}></Header>
       <main>
         <Sidebar />
         <Content><User /></Content>
