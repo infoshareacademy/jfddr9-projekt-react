@@ -1,11 +1,31 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 .app {
+  max-width: 90vw;
+  margin: 50px auto;
   text-align: center;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
+  justify-content: center;
+  align-content: center;
+  display: grid;
+  grid-template-areas:
+  "header header header"
+  "sidebar content content"
+  "sidebar content content"
+  "footer footer footer";
+  gap: 9px;
 }
 
 .app-logo {
   height: 40vmin;
   pointer-events: none;
 }
+
 
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
