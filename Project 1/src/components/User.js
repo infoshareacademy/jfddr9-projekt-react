@@ -37,7 +37,8 @@ export const User = () => {
     }
 
     useEffect(() => {
-        searchUser(() => list)
+        const updatedList = searchList.filter((user) => list.includes(user))
+        searchUser(() => updatedList)
     }, [list])
 
 
