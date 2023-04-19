@@ -26,7 +26,14 @@
   pointer-events: none;
 }
 
-
+.searchingBox {
+  width: 90%;
+  display: flex;
+  justify-self: center;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid white;
+}
 @media (prefers-reduced-motion: no-preference) {
   .app-logo {
     animation: app-logo-spin infinite 20s linear;

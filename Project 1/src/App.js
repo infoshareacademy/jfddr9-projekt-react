@@ -15,6 +15,7 @@ import { ThemeProvider } from 'styled-components';
 
 
 
+
 const data = UsersData.map((user) => ({
     name: user.name, email: user.email
 
@@ -44,7 +45,7 @@ function App() {
       
       <Sidebar items={items}/>
       <Content> 
-        <Users data={data}/>
+        <Users data={data}/>    
       </Content>
       <Footer text={text}/>
     </div>

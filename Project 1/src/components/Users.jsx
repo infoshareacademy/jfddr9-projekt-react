@@ -1,32 +1,41 @@
 import { User } from "./User";
 import { useState } from "react";
-//import { useEffect } from "react";
 
-export const Users = ({ data }) => {
+export const Users = ({data}) => {
   const [users, setUsers] = useState(data);
   
 
-  // useEffect(() => {
-  //   setUsers(data);
+  const handleChange = (event) => {
+    const inputValue = event.target.value;
+    filteredUsers(inputValue)
+  }
+  
+  const filteredUsers = (filteredValue) => {
+    const filteredUsers = data.filter((user) => user.name.toLowerCase().includes(filteredValue.toLowerCase()))
 
-  //   return () => {};
-  // }, [data]);
-
-  if (users.length === 0) {
-    return <div> "Users list empty!" </div>;
+    if ( filteredValue !=='' ) {
+      setUsers(filteredUsers)
+    } else {
+      setUsers(data)
+    }
   }
 
   const deleteUser = (name) => {
     const newUserArray = users.filter((user) => user.name !== name);
     setUsers(newUserArray);
     console.log(newUserArray);
-
   };
 
+ 
   return (
     <>
+
+      {!users.length && (
+      <p>Users list empty</p>
+      )}
+      <input className="searchingBox" type="search" onChange={handleChange}/>
       {users.map((user) => {        
-        return <User onClick={deleteUser} user={user} key={user.name} />;
+        return <User onClick={deleteUser} user={user} key={user.name}/>;
       })}
     </>
   );
