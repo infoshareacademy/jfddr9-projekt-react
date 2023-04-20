@@ -39,25 +39,28 @@
 
 .two {
   display: flex;
-  max-width: 1920px;
+  
 }
 
 
 .background-clicked {
   background-color: black;
   color: white;
+  
 }
  .background-clicked2 {
   background-color: white;
 }
 
 .firstbutton {
-  height: 30px;
-  width: 100px;
+  height: 60px;
+  width: 150px;
   background-color: brown;
   color: antiquewhite;
   font-size: 12px;
   border-radius: 5%;
+  font-size: 20px;
+
 }
 
 .themeButtons {
@@ -68,4 +71,6 @@
 .up {
   display: flex;
   justify-content: space-between;
+  justify-content: flex-end;
+  margin-right: 40px;
 }

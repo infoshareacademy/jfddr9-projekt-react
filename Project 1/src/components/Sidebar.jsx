@@ -2,19 +2,26 @@ import styled from "styled-components"
 
 const SidebarTekst = styled.div`
 
-width: 300px;
+width: 25vw;
 height: 400px;
-padding: 20px;
-border: 2px solid black;
+
+border: 3px solid;
 display: flex;
+flex-direction: column;
 justify-content: center;
 align-items: center;
-font-size: 45px;
+font-size: 25px;
+
 `
 
 
 
-export function Sidebar() {
-    return<SidebarTekst>MenuItems</SidebarTekst>
+export function Sidebar({links}) {
+    return<SidebarTekst>{links.map(x=>{
+      return<a>{x.name}{' '}{x.link}</a>
+      
+      
+
+    })}</SidebarTekst>
         
       }

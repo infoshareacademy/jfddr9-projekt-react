@@ -1,7 +1,8 @@
 import styled from "styled-components"
 
 const UserContent = styled.div`
-background-color: blue;
+padding: 20px;
+
 `
 
 export const User = ({user}) => {

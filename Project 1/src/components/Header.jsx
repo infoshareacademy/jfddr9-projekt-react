@@ -2,10 +2,10 @@ import styled from "styled-components"
 
 const HeaderTekst = styled.div`
 
-max-width: 1920px;
+max-width: 100%;
 height: 150px;
-padding: 20px;
-border: 2px solid black;
+
+border: 3px solid;
 display: flex;
 justify-content: center;
 align-items: center;
