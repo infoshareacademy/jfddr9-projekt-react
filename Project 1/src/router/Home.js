@@ -1,20 +1,15 @@
 import '../App.css';
-import { AuthContext } from '../providers/Auth';
 
 import logo from '../logo.svg';
 
-import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
-import { Content } from '../providers/Content';
-import { SearchBox } from '../components/Searchbox';
-import { Footer } from '../components/Footer';
-
-import { Users } from '../components/Users';
+import { Header, Sidebar, SearchBox, Footer, Users } from '../components';
 
 import { useContext, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 
+import { AuthContext } from '../providers/Auth';
 import { CustomThemeContext } from '../providers/CustomTheme';
+import { Content } from '../providers/Content';
 
 export function Home() {
   const { isLogged } = useContext(AuthContext);
@@ -33,7 +28,7 @@ export function Home() {
 
   return (
     <div className="app">
-      <Header title="Home" logoSrc={logo} fn={toggleTheme}></Header>
+      <Header title="Home" logoSrc={logo} handleToggle={toggleTheme} />
       <main>
         <Sidebar />
         <Content>

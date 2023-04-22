@@ -30,7 +30,7 @@ export const Header = (props) => {
     <HeaderStyle mytheme={isDarkTheme}>
       <h1>{props.title}</h1>
       <img src={props.logoSrc} alt="logo" />
-      <ThemeSwitcher fn={props.fn} />
+      <ThemeSwitcher handleToggle={props.handleToggle} />
       <button onClick={logOut}>Log out</button>
       <Link to={'/user/add'}>
         <button>Add User</button>

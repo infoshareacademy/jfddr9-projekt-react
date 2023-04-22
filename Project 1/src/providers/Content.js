@@ -1,5 +1,5 @@
 import { createContext, useState } from 'react';
-import { StyledContent } from '../components/StyledContent';
+import { StyledContent } from '../components';
 import { CustomThemeContext } from './CustomTheme';
 import { useContext } from 'react';
 

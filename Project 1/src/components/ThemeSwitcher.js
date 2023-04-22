@@ -4,6 +4,6 @@ const ButtonStyled = styled.button`
   padding: 5px;
 `;
 
-export const ThemeSwitcher = ({ fn }) => {
-  return <ButtonStyled onClick={fn}>Zmień Motyw</ButtonStyled>;
+export const ThemeSwitcher = ({ handleToggle }) => {
+  return <ButtonStyled onClick={handleToggle}>Zmień Motyw</ButtonStyled>;
 };

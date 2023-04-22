@@ -11,10 +11,7 @@ import { Link } from 'react-router-dom';
 import { CustomThemeContext } from '../providers/CustomTheme';
 import { AuthContext } from '../providers/Auth';
 
-import { Header } from '../components/Header';
-import { Sidebar } from '../components/Sidebar';
-import { Content } from '../providers/Content';
-import { Footer } from '../components/Footer';
+import { Header, Sidebar, Footer, StyledContent } from '../components';
 
 export const UserProfile = () => {
   const { isLogged } = useContext(AuthContext);
@@ -38,10 +35,10 @@ export const UserProfile = () => {
 
   return (
     <div className="app">
-      <Header title="User Profile" logoSrc={logo} fn={toggleTheme}></Header>
+      <Header title="User Profile" logoSrc={logo} handleToggle={toggleTheme} />
       <main>
         <Sidebar />
-        <Content>
+        <StyledContent>
           <h1>Name</h1>
           <p>{usersArray[userIndex].name}</p>
           <h1>Address</h1>
@@ -55,7 +52,7 @@ export const UserProfile = () => {
           <Link to={`/home`}>
             <button>Go back</button>
           </Link>
-        </Content>
+        </StyledContent>
       </main>
       <Footer text="Stopka" />
     </div>
