@@ -1,40 +1,29 @@
-import './App.css';
-import { ThemeProvider } from 'styled-components';
-import { lightTheme , darkTheme} from './components/themes';
-
-import logo from './logo.svg'
-
-import { Header } from './components/Header';
-import { Sidebar } from './components/Sidebar';
-import { Content } from './components/Content';
-import { Footer } from './components/Footer';
-
-import { User } from './components/User';
-import { useState } from 'react';
-
-
-
+import { Route, Routes, useNavigate } from 'react-router-dom';
+import { Login } from './router/Login';
+import { Home } from './router/Home';
+import { UserAdd } from './router/UserAdd';
+import { UserProfile } from './router/UserProfile';
+import { UserEdit } from './router/UserEdit';
+import { AuthContext } from './providers/Auth';
+import { useContext, useEffect } from 'react';
 
 function App() {
-  const [theme, setTheme] = useState('light');
-  const isDarkTheme = theme === 'dark';
+  const { isLogged } = useContext(AuthContext);
 
-  const toggleTheme = () => {
-    console.log('dsda')
-    setTheme(isDarkTheme ? 'light' : 'dark')
-  }
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    isLogged ? navigate('/home') : navigate('/login');
+  }, [isLogged]);
 
   return (
-    <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
-      <div className="app">
-      <Header title="Nagłówek" logoSrc={logo} fn={toggleTheme}></Header>
-      <main>
-        <Sidebar />
-        <Content><User /></Content>
-      </main>
-      <Footer text="Stopka"/>
-    </div>
-    </ThemeProvider>
+    <Routes>
+      <Route path="/home" element={<Home />} />
+      <Route path="/login" element={<Login />} />
+      <Route path="/user/:id" element={<UserProfile />} />
+      <Route path="/user/add" element={<UserAdd />} />
+      <Route path="/user/edit/:id" element={<UserEdit />} />
+    </Routes>
   );
 }
 

@@ -1,11 +1,9 @@
 import styled from 'styled-components';
 
 const ButtonStyled = styled.button`
-padding: 15px;
-`
+  padding: 5px;
+`;
 
-export const ThemeSwitcher = ({fn}) => {
-    return (
-        <ButtonStyled onClick={fn}>Zmień Motyw</ButtonStyled>
-    )
-}
+export const ThemeSwitcher = ({ fn }) => {
+  return <ButtonStyled onClick={fn}>Zmień Motyw</ButtonStyled>;
+};

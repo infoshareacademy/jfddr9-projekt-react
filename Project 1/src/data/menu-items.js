@@ -10,5 +10,5 @@ export const MenuItems = [
     {
         name: "Twitter",
         link: "https://www.twitter.com",
-    }
+    },
 ];

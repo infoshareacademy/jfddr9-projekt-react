@@ -1,6 +1,21 @@
-import { useState } from "react"
+import { useDispatch } from 'react-redux';
+import { searchUser } from '../store/usersSlice';
+import { usersListContext } from '../providers/Content';
+import { useContext } from 'react';
 
-export const SearchBox = ({handleInput}) => {
+export const SearchBox = () => {
+  const dispatch = useDispatch();
 
-    return <input type="text" onInput={handleInput}/>
-}
+  const { setIsSearched } = useContext(usersListContext);
+
+  const search = (e) => {
+    if (e.target.value !== '') {
+      setIsSearched(true);
+      dispatch(searchUser(e.target.value));
+    } else {
+      setIsSearched(false);
+    }
+  };
+
+  return <input type="text" onChange={(e) => search(e)} />;
+};
