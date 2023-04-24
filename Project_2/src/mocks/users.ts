@@ -1,4 +1,28 @@
-export const mockedUser = [
+export type MockedUserType = {
+  id: number;
+  name: string;
+  username: string;
+  email: string;
+  address: {
+    street: string;
+    suite: string;
+    city: string;
+    zipcode: string;
+    geo: {
+      lat: string;
+      lng: string;
+    },
+  },
+  phone: string;
+  website: string;
+  company: {
+    name: string;
+    catchPhrase: string;
+    bs: string;
+  },
+}
+
+export const mockedUser: MockedUserType[] = [
   {
     id: 1,
     name: "Leanne Graham",

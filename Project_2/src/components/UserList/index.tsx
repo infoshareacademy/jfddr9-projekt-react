@@ -1,6 +1,13 @@
 import { User } from "../User";
+import { MockedUserType } from "../../mocks/users"
 
-export const UserList = ({ users }: any) => (
+type UserListProps = {
+  users: MockedUserType[];  
+}
+
+export const UserList = ({ users }: UserListProps) => {
+
+return(
   <div className="flex justify-center pt-4">
     <ul className="bg-white rounded-lg w-120 text-gray-900 border-t border-gray-200">
       {/* @ts-ignore */}
@@ -10,3 +17,4 @@ export const UserList = ({ users }: any) => (
     </ul>
   </div>
 );
+}
