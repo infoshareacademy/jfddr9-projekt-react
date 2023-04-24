@@ -1,8 +1,8 @@
-interface IProps {
+type SearchFieldProps = {
   setQuery: (query: string) => void;
-}
+};
 
-export const SearchField = ({ setQuery }: IProps) => (
+export const SearchField = ({ setQuery }: SearchFieldProps) => (
   <div className="pt-3">
     <input
       type="text"
@@ -10,7 +10,9 @@ export const SearchField = ({ setQuery }: IProps) => (
       placeholder="Search for Startups..."
       id="search-filter"
       data-cy="search-filter"
-      onChange={(event) => setQuery(event.target.value.toLowerCase() as string)}
+      onChange={(event: React.ChangeEvent<HTMLInputElement>) =>
+        setQuery(event.target.value.toLowerCase() as string)
+      }
     />
   </div>
 );

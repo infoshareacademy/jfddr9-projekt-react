@@ -1,4 +1,10 @@
-export const AppWrapper = ({ children }: any) => (
+import { ReactNode } from "react";
+
+type AppWrapperProps = {
+  children: ReactNode[];
+};
+
+export const AppWrapper = ({ children }: AppWrapperProps) => (
   <div className="App">
     <div className="py-12 bg-white">
       <div className="max-w-8xl mx-auto px-4 sm:px-6 lg:px-8">

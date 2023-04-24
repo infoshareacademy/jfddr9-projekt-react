@@ -1,6 +1,10 @@
-import { User } from "../User";
+import { User, UserType } from "../User";
 
-export const UserList = ({ users }: any) => (
+type UserListProps = {
+  users: UserType[];
+};
+
+export const UserList = ({ users }: UserListProps) => (
   <div className="flex justify-center pt-4">
     <ul className="bg-white rounded-lg w-120 text-gray-900 border-t border-gray-200">
       {/* @ts-ignore */}
