@@ -3,38 +3,27 @@ import { SearchField } from "./components/SearchField";
 import { LoadingSpinner } from "./components/LoadingSpinner";
 import { UserList } from "./components/UserList";
 import { AppWrapper } from "./components/AppWrapper";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import { filterUserByQuery } from "./utils/filterUserByQuery";
 import { ErrorAlert } from "./components/ErrorAlert";
+import {  AppContext,  } from "./context/AppContext";
 
 function App() {
-  const [users, setUsers] = useState<any>([]);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState(false);
 
-  useEffect(() => {
-    fetch("https://jsonplaceholder.typicode.com/users")
-      .then((res) => res.json())
-      .then((data) => {
-        setUsers(data as any);
-        setIsLoading(false);
-      })
-      .catch((e) => {
-        setError(true);
-      });
-  }, []);
 
-  const [query, setQuery] = useState("");
+  const [query, setQuery] = useState<string>("");
+  const context = useContext(AppContext)
+  // console.log(context);
   return (
-    <AppWrapper>
-      <Header />
-      <SearchField setQuery={setQuery} />
-      {isLoading && <LoadingSpinner />}
-      {!isLoading && users && !error && (
-        <UserList users={filterUserByQuery(users, query)} />
-      )}
-      {!isLoading && error && <ErrorAlert />}
-    </AppWrapper>
+      <AppWrapper>
+        <Header />
+        <SearchField setQuery={setQuery} />
+        {context?.isLoading && <LoadingSpinner />}
+        {!context?.isLoading && context?.users && !context?.error && (
+          <UserList users={filterUserByQuery(context?.users, query)} />
+        )}
+        {!context?.isLoading && context?.error && <ErrorAlert />}
+      </AppWrapper>
   );
 }
 
