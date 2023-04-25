@@ -6,9 +6,10 @@ import { AppWrapper } from "./components/AppWrapper";
 import { useEffect, useState } from "react";
 import { filterUserByQuery } from "./utils/filterUserByQuery";
 import { ErrorAlert } from "./components/ErrorAlert";
+import { UserTyp } from "./types";
 
 function App() {
-  const [users, setUsers] = useState<any>([]);
+  const [users, setUsers] = useState<UserTyp[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
 

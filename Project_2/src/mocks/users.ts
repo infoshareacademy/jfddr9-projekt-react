@@ -1,3 +1,4 @@
+
 export const mockedUser = [
   {
     id: 1,
