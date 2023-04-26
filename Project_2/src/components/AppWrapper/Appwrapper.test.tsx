@@ -1,13 +1,14 @@
-export type UserData = {
-    name: string;
-    username: string;
-    index: number;
-  }
-  export const User = ({ name, username, index }: UserData): JSX.Element => (
-    <li className="px-6 py-2 border-b border-gray-200 w-full text-left text-lg text-gray-400 tracking-wide font-medium">
-      <span>{index + 1}</span>
-      <span className="mx-2 text-black">{name}</span>
-      <span>@{username}</span>
-    </li>
-  );
-  
+import { render, screen} from '@testing-library/react';
+
+import { AppWrapper } from '.';
+
+describe("AppWrapper", () => {
+    it('should render', () => {
+
+        //given
+        render(<AppWrapper><div></div>test</AppWrapper>)
+
+        //then
+        expect(screen.getByText("test")).toBeInTheDocument()
+    })
+})
