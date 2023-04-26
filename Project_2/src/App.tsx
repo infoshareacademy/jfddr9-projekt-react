@@ -6,7 +6,7 @@ import { AppWrapper } from "./components/AppWrapper";
 import { useEffect, useState } from "react";
 import { filterUserByQuery } from "./utils/filterUserByQuery";
 import { ErrorAlert } from "./components/ErrorAlert";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
 
 const firebaseConfig = {
@@ -38,9 +38,24 @@ function App() {
     });
   }, []);
 
+  const [name, setName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
+
   const [query, setQuery] = useState("");
+
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const usersRef = collection(db, "usersList");
+    addDoc(usersRef, {name, username})
+  }
+
   return (
     <AppWrapper>
+      <form onSubmit={handleSubmit}>
+        <input name="name" onChange={(e) => {setName(e.target.value)}}/>
+        <input name="username" onChange={(e) => {setUsername(e.target.value)}}/>
+        <button type="submit">Dodaj</button>
+      </form>
       <Header />
       <SearchField setQuery={setQuery} />
       {isLoading && <LoadingSpinner />}
