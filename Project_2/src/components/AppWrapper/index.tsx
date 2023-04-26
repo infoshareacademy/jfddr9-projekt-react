@@ -2,10 +2,10 @@ import { ReactNode } from "react";
 
 type AppWrapperProps = {
   children: ReactNode[];
-}
-
+};
 
 export const AppWrapper = ({ children }: AppWrapperProps) => {
+  console.log(children);
   return (
     <div className="App">
       <div className="py-12 bg-white">
@@ -15,4 +15,4 @@ export const AppWrapper = ({ children }: AppWrapperProps) => {
       </div>
     </div>
   );
-}
+};
