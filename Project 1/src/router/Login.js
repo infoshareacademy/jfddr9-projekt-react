@@ -4,13 +4,13 @@ import { AuthContext } from "../providers/Auth"
 
 
 export const Login = () => {
-
     const {setIsLogged} = useContext(AuthContext)
     const [login, setLogin] = useState("")
     const [password, setPassword] = useState("")
-    const logIn = () => {
-        localStorage.setItem("user, login")
 
+    const logIn = () => {
+        localStorage.setItem("user", login)
+        setIsLogged(true)
     }
 
     const handleSubmit = (e) => {

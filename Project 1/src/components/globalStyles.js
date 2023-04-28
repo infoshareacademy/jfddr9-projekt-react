@@ -18,6 +18,19 @@ p {
     border-radius: 20px;
     transition: all .5s linear;
     margin-left: auto;
+    width: 85px;
+    position: absolute;
+    align-self: center
+}
+.logoutBtn {
+    background: ${({theme}) => theme.backgroundheader};
+    color: ${({theme}) => theme.primary};
+    padding: 15px 10px;
+    border: 2px solid white;
+    border-radius: 20px;
+    transition: all .5s linear;
+    top: 65px;
+    width: 85px;
     position: absolute;
     align-self: center
 }

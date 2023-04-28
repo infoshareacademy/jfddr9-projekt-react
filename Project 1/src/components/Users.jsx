@@ -1,3 +1,4 @@
+import { useDispatch, useSelector } from "react-redux";
 import { User } from "./User";
 import { useState } from "react";
 
@@ -19,12 +20,12 @@ export const Users = ({data}) => {
       setUsers(data)
     }
   }
-
-  const deleteUser = (name) => {
-    const newUserArray = users.filter((user) => user.name !== name);
-    setUsers(newUserArray);
-    console.log(newUserArray);
-  };
+ 
+  // const deleteUser = (name) => {
+  //   const newUserArray = users.filter((user) => user.name !== name);
+  //   setUsers(newUserArray);
+  //   console.log(newUserArray);
+  // };
 
  
   return (
@@ -35,7 +36,7 @@ export const Users = ({data}) => {
       )}
       <input className="searchingBox" type="search" onChange={handleChange}/>
       {users.map((user) => {        
-        return <User onClick={deleteUser} user={user} key={user.name}/>;
+        return <User user={user} key={user.name}/>;
       })}
     </>
   );

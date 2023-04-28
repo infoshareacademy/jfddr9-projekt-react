@@ -9,7 +9,8 @@ export const AuthProvider = ({children}) => {
     const navigate = useNavigate()
 
     useEffect(() => {
-        isLogged ? navigate("/home") : navigate("/login")
+        !!localStorage.getItem("user") && setIsLogged(true)
+        !!localStorage.getItem("user") ? navigate("/home") : navigate("/login")
     }, [])
 
     return <AuthContext.Provider value={{isLogged, setIsLogged}}>
