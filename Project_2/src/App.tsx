@@ -6,10 +6,8 @@ import { AppWrapper } from "./components/AppWrapper";
 import { useEffect, useState } from "react";
 import { filterUserByQuery } from "./utils/filterUserByQuery";
 import { ErrorAlert } from "./components/ErrorAlert";
-import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
+import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore/lite";
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
-
 const firebaseConfig = {
   apiKey: "AIzaSyAzmVCG3zVoQZbJGk57GR2X6tHF9gvqp70",
   authDomain: "mati-10d63.firebaseapp.com",
@@ -21,7 +19,6 @@ const firebaseConfig = {
 };
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
-const analytics = getAnalytics(app);
 function App() {
   const [users, setUsers] = useState<any>([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -29,16 +26,28 @@ function App() {
   useEffect(() => {
     const usersRef = collection(db, "List");
     getDocs(usersRef).then((querySnapshot) => {
-      const users = querySnapshot.docs.map((queryDocumentSnapshot) => {
+      const list = querySnapshot.docs.map((queryDocumentSnapshot) => {
         return queryDocumentSnapshot.data();
       });
-      setUsers(users);
+      setUsers(list);
       setIsLoading(false);
     });
   }, []);
+  const [name, setName] = useState<string>("");
+  const [username, setUsername] = useState<string>("");
   const [query, setQuery] = useState("");
+  const handleSubmit = (e: any) => {
+    e.preventDefault();
+    const usersRef = collection(db, "List");
+    addDoc(usersRef, {name, username})
+  }
   return (
     <AppWrapper>
+      <form onSubmit={handleSubmit}>
+        <input name="name" onChange={(e) => {setName(e.target.value)}}/>
+        <input name="username" onChange={(e) => {setUsername(e.target.value)}}/>
+        <button type="submit">Dodaj</button>
+      </form>
       <Header />
       <SearchField setQuery={setQuery} />
       {isLoading && <LoadingSpinner />}
