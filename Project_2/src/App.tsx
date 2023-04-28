@@ -6,12 +6,15 @@ import { AppWrapper } from "./components/AppWrapper";
 import { useEffect, useState } from "react";
 import { filterUserByQuery } from "./utils/filterUserByQuery";
 import { ErrorAlert } from "./components/ErrorAlert";
-import { UserTyp } from "./types";
+import { UserType } from "./types";
+import { Form } from "./components/Form/form";
+
 
 function App() {
-  const [users, setUsers] = useState<UserTyp[]>([]);
+  const [users, setUsers] = useState<UserType[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState(false);
+
 
   useEffect(() => {
     fetch("https://jsonplaceholder.typicode.com/users")
@@ -28,6 +31,7 @@ function App() {
   const [query, setQuery] = useState("");
   return (
     <AppWrapper>
+      <Form/>
       <Header />
       <SearchField setQuery={setQuery} />
       {isLoading && <LoadingSpinner />}

@@ -1,12 +1,12 @@
 import { User } from "../User";
-import { UserTyp } from "../../types";
+import { UserType } from "../../types";
 
-type UsersTypes = {
-  users: UserTyp[]
-}
+// export type UsersTypes = {
+//   users: UserType[]
+// }
 
 
-export const UserList = ({ users }: UsersTypes):JSX.Element => (
+export const UserList = ({ users }: any) => (
   <div className="flex justify-center pt-4">
     <ul className="bg-white rounded-lg w-120 text-gray-900 border-t border-gray-200">
       {/* @ts-ignore */}
