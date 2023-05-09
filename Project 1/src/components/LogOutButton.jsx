@@ -8,7 +8,7 @@ export const LogOutButton = () => {
 
     const handleClick = () => {
         setIsLogged(false)
-        localStorage.removeItem("user")
+        localStorage.removeItem("userData")
         navigate('/login')
 
     }

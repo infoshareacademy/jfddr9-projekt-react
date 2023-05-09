@@ -13,12 +13,6 @@ import { Toggle } from '../components/Toggle';
 import { ThemeProvider } from 'styled-components';
 import { LogOutButton } from '../components/LogOutButton';
 import { useSelector } from 'react-redux';
-// import { useContext } from 'react';
-// import {AuthContext} from "../providers/Auth"
-
-
-
-
 
 
 const items = MenuItems.map((item) => ({
@@ -31,15 +25,14 @@ function Home() {
   const [ theme, toggleTheme ] = useDarkMode();
   const themeMode = theme === 'light' ? lightTheme : darkTheme;
   const users = useSelector(state => state.usersReducer.users)
-  const data = users.map((user) => ({name: user.name, email: user.email}))
 
-  
+  const data = users.map((user) => ({name: user.name, email: user.email, id: user.id}))
 
- 
   
   return (
    
    <ThemeProvider theme={themeMode}> 
+ 
     <div className='app'>
       
       <GlobalStyles/>
@@ -48,8 +41,8 @@ function Home() {
         <LogOutButton/>
       </Header>
       
-      <Sidebar items={items}/>
-
+      <Sidebar items={items}/>  
+     
       <Content> 
         <Users data={data}/>    
       </Content>
@@ -57,6 +50,7 @@ function Home() {
       <Footer text={text}/>
 
     </div>
+    
      </ThemeProvider>
   );
 }

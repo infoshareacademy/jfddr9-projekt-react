@@ -1,42 +1,43 @@
 import { useDispatch, useSelector } from "react-redux";
 import { User } from "./User";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { filterUsers } from "../store/userSlice";
+import { Link } from "react-router-dom";
 
 export const Users = ({data}) => {
+  const state = useSelector(state => state.usersReducer.users);
+  console.log(state);
+ 
   const [users, setUsers] = useState(data);
+  const dispatch = useDispatch();
   
-
   const handleChange = (event) => {
     const inputValue = event.target.value;
-    filteredUsers(inputValue)
-  }
-  
-  const filteredUsers = (filteredValue) => {
-    const filteredUsers = data.filter((user) => user.name.toLowerCase().includes(filteredValue.toLowerCase()))
-
-    if ( filteredValue !=='' ) {
-      setUsers(filteredUsers)
+    if ( inputValue !=='' ) {
+      dispatch(filterUsers(inputValue));
+      setUsers(state);
     } else {
-      setUsers(data)
+      setUsers(data);
     }
-  }
- 
-  // const deleteUser = (name) => {
-  //   const newUserArray = users.filter((user) => user.name !== name);
-  //   setUsers(newUserArray);
-  //   console.log(newUserArray);
-  // };
+  };
 
+  // useEffect(() => {
+  //   setUsers(state);
+  // }, [state]);
  
   return (
     <>
 
-      {!users.length && (
-      <p>Users list empty</p>
-      )}
+
+      {!state.length && (<div>Users list is empty</div>)}
+  
       <input className="searchingBox" type="search" onChange={handleChange}/>
-      {users.map((user) => {        
-        return <User user={user} key={user.name}/>;
+      <Link to="/user/add">
+        <button>Add User</button>
+      </Link>
+      {data.map((user) => {        
+        return <User user={user} key={user.name} />;
+        
       })}
     </>
   );

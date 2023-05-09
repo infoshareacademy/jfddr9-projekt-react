@@ -1,5 +1,4 @@
 import { useContext, useState } from "react"
-import {AuthProvider} from "../providers/Auth"
 import { AuthContext } from "../providers/Auth"
 
 
@@ -9,7 +8,7 @@ export const Login = () => {
     const [password, setPassword] = useState("")
 
     const logIn = () => {
-        localStorage.setItem("user", login)
+        localStorage.setItem("userData", login)
         setIsLogged(true)
     }
 
@@ -26,7 +25,7 @@ export const Login = () => {
         </div>
         <div>
             <label>Password</label>
-            <input name={"Password"} type="password" onChange={(e) => setPassword(e.target.value)}/>
+            <input name={"password"} type="password" onChange={(e) => setPassword(e.target.value)}/>
         </div>
         <button type="sumbit">Login</button>
 
